@@ -79,7 +79,7 @@ function utcTimestampToDateString(timestamp: string | number): string | null {
   return null;
 }
 
-function parseToken(token: string): ParsedToken | null {
+export function parseToken(token: string): ParsedToken | null {
   const [algorithm, payload, signature] = token.split('.');
   if (
     algorithm === undefined ||
