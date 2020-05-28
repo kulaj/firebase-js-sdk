@@ -42,9 +42,14 @@ export type LogLevel = 'debug' | 'error' | 'silent';
 export function setLogLevel(logLevel: LogLevel): void;
 
 export interface FirestoreDataConverter<T> {
-  toFirestore(modelObject: T): DocumentData;
+  toFirestore:
+    | ((modelObject: T) => DocumentData)
+    | ((modelObject: Partial<T>, options?: SetOptions) => DocumentData);
 
-  fromFirestore(snapshot: QueryDocumentSnapshot, options: SnapshotOptions): T;
+  fromFirestore: (
+    snapshot: QueryDocumentSnapshot,
+    options: SnapshotOptions
+  ) => T;
 }
 
 export class FirebaseFirestore {

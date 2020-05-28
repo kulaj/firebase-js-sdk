@@ -16,6 +16,7 @@
  */
 
 import { FirebaseApp } from '@firebase/app-types';
+import { SnapshotOptions } from '@firebase/firestore-types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -38,8 +39,14 @@ export type LogLevel = 'debug' | 'error' | 'silent';
 export function setLogLevel(logLevel: LogLevel): void;
 
 export interface FirestoreDataConverter<T> {
-  toFirestore(modelObject: T): DocumentData;
-  fromFirestore(snapshot: QueryDocumentSnapshot): T;
+  toFirestore:
+    | ((modelObject: T) => DocumentData)
+    | ((modelObject: Partial<T>, options?: SetOptions) => DocumentData);
+
+  fromFirestore: (
+    snapshot: QueryDocumentSnapshot,
+    options: SnapshotOptions
+  ) => T;
 }
 
 export class FirebaseFirestore {

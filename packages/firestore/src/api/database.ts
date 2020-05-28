@@ -806,8 +806,14 @@ export class WriteBatch implements firestore.WriteBatch {
   constructor(private _firestore: Firestore) {}
 
   set<T>(
+    documentRef: DocumentReference<T>,
+    data: Partial<T>,
+    options: firestore.SetOptions
+  ): WriteBatch;
+  set<T>(documentRef: DocumentReference<T>, data: T): WriteBatch;
+  set<T>(
     documentRef: firestore.DocumentReference<T>,
-    value: T,
+    value: T | Partial<T>,
     options?: firestore.SetOptions
   ): WriteBatch {
     validateBetweenNumberOfArgs('WriteBatch.set', arguments, 2, 3);
@@ -2538,11 +2544,19 @@ function resultChangeType(type: ChangeType): firestore.DocumentChangeType {
 function applyFirestoreDataConverter<T>(
   converter: firestore.FirestoreDataConverter<T> | undefined,
   value: T,
-  functionName: string
+  functionName: string,
+  options?: firestore.SetOptions
 ): [firestore.DocumentData, string] {
   let convertedValue;
   if (converter) {
-    convertedValue = converter.toFirestore(value);
+    if (options && (options.merge || options.mergeFields)) {
+      // Cast to any in order to satisfy the union type constraint on
+      // toFirestore().
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      convertedValue = (converter as any).toFirestore(value, options);
+    } else {
+      convertedValue = converter.toFirestore(value);
+    }
     functionName = 'toFirestore() in ' + functionName;
   } else {
     convertedValue = value as firestore.DocumentData;

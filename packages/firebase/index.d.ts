@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+import { DocumentData } from '@firebase/firestore-types';
+
 /**
  * <code>firebase</code> is a global namespace from which all Firebase
  * services are accessed.
@@ -7846,9 +7848,12 @@ declare namespace firebase.firestore {
     /**
      * Called by the Firestore SDK to convert a custom model object of type T
      * into a plain Javascript object (suitable for writing directly to the
-     * Firestore database).
+     * Firestore database). To use set() with `merge` and `mergeFields,
+     * toFirestore() must be defined with `Partial<T>`.
      */
-    toFirestore(modelObject: T): DocumentData;
+    toFirestore:
+      | ((modelObject: T) => DocumentData)
+      | ((modelObject: Partial<T>, options?: SetOptions) => DocumentData);
 
     /**
      * Called by the Firestore SDK to convert Firestore data into an object of
@@ -7857,7 +7862,10 @@ declare namespace firebase.firestore {
      * @param snapshot A QueryDocumentSnapshot containing your data and metadata.
      * @param options The SnapshotOptions from the initial call to `data()`.
      */
-    fromFirestore(snapshot: QueryDocumentSnapshot, options: SnapshotOptions): T;
+    fromFirestore: (
+      snapshot: QueryDocumentSnapshot,
+      options: SnapshotOptions
+    ) => T;
   }
 
   /**
