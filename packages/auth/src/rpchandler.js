@@ -357,7 +357,7 @@ fireauth.RpcHandler.FIREBASE_LOCALE_KEY_ = 'X-Firebase-Locale';
  * @private
  */
 fireauth.RpcHandler.SECURE_TOKEN_ENDPOINT_ =
-    'https://securetoken.googleapis.com/v1/token';
+    'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token';
 
 
 /**
@@ -386,7 +386,7 @@ fireauth.RpcHandler.DEFAULT_SECURE_TOKEN_HEADERS_ = {
  * @private
  */
 fireauth.RpcHandler.FIREBASE_ENDPOINT_ =
-    'https://www.googleapis.com/identitytoolkit/v3/relyingparty/';
+    'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/';
 
 
 /**

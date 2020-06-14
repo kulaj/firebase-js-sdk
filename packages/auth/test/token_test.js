@@ -54,7 +54,7 @@ function setUp() {
   rpcHandler = new fireauth.RpcHandler(
       'apiKey',
       {
-        'tokenEndpoint': 'https://securetoken.googleapis.com/v1/token',
+        'tokenEndpoint': 'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token',
         'tokenTimeout': 10000,
         'tokenHeaders': {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -163,7 +163,7 @@ function testStsTokenManager_copy() {
   var rpcHandlerWithDiffApiKey = new fireauth.RpcHandler(
       'apiKey2',
       {
-        'tokenEndpoint': 'https://securetoken.googleapis.com/v1/token',
+        'tokenEndpoint': 'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token',
         'tokenTimeout': 10000,
         'tokenHeaders': {
           'Content-Type': 'application/x-www-form-urlencoded'

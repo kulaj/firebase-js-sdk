@@ -567,7 +567,7 @@ function testSendFirebaseBackendRequest_clientVersion() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50',
       'GET',
       undefined,
@@ -654,7 +654,7 @@ function testSendFirebaseBackendRequest_offline_falseAlert() {
       'send',
       function(url, httpMethod, data, headers) {
         assertEquals(
-             'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+             'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
              'createAuthUri?key=apiKey',
              url);
         assertEquals('POST', httpMethod);
@@ -725,7 +725,7 @@ function testSendFirebaseBackendRequest_offline_slowResponse() {
       'send',
       function(url, httpMethod, data, headers) {
         assertEquals(
-             'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+             'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
              'createAuthUri?key=apiKey',
              url);
         assertEquals('POST', httpMethod);
@@ -962,7 +962,7 @@ function testSendSecureTokenBackendRequest_clientVersion() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       expectedHeaders,
@@ -986,7 +986,7 @@ function testRequestStsToken_updateClientVersion() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       {
@@ -1015,7 +1015,7 @@ function testRequestStsToken_removeClientVersion() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       {
@@ -1043,7 +1043,7 @@ function testRequestStsToken_default() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       fireauth.RpcHandler.DEFAULT_SECURE_TOKEN_HEADERS_,
@@ -1123,7 +1123,7 @@ function testRequestStsToken_unknownServerResponse() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       fireauth.RpcHandler.DEFAULT_SECURE_TOKEN_HEADERS_,
@@ -1158,7 +1158,7 @@ function testRequestStsToken_specificErrorResponse() {
   asyncTestCase.waitForSignals(1);
   // Confirm correct parameters passed and run on complete.
   assertSendXhrAndRunCallback(
-      'https://securetoken.googleapis.com/v1/token?key=apiKey',
+      'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token?key=apiKey',
       'POST',
       'grant_type=authorization_code&code=idToken',
       fireauth.RpcHandler.DEFAULT_SECURE_TOKEN_HEADERS_,
@@ -1186,7 +1186,7 @@ function testRequestFirebaseEndpoint_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1247,7 +1247,7 @@ function testRequestFirebaseEndpoint_updateClientVersion() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1318,7 +1318,7 @@ function testRequestFirebaseEndpoint_removeClientVersion() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1387,7 +1387,7 @@ function testRequestFirebaseEndpoint_setCustomLocaleHeader_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1458,7 +1458,7 @@ function testRequestFirebaseEndpoint_updateCustomLocaleHeader_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1533,7 +1533,7 @@ function testRequestFirebaseEndpoint_removeCustomLocaleHeader_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1609,7 +1609,7 @@ function testRequestFirebaseEndpoint_error() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1675,7 +1675,7 @@ function testRequestIdentityPlatformEndpoint_error() {
 
 function testRequestFirebaseEndpoint_networkError() {
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({'key1': 'value1'}),
@@ -1727,7 +1727,7 @@ function testRequestFirebaseEndpoint_keyInvalid() {
     }
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       '{}',
@@ -1802,7 +1802,7 @@ function testRequestFirebaseEndpoint_notAuthorized() {
     }
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       '{}',
@@ -1873,7 +1873,7 @@ function testRequestFirebaseEndpoint_customError() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/method1?key' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/method1?key' +
       '=apiKey',
       'POST',
       goog.json.serialize({
@@ -1957,7 +1957,7 @@ function testGetAuthorizedDomains() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50',
       'GET',
       undefined,
@@ -1982,7 +1982,7 @@ function testGetRecaptchaParam_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getRecaptchaParam?key=apiKey&cb=50',
       'GET',
       undefined,
@@ -2008,7 +2008,7 @@ function testGetRecaptchaParam_invalidResponse_missingSitekey() {
   var serverResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getRecaptchaParam?key=apiKey&cb=50',
       'GET',
       undefined,
@@ -2038,7 +2038,7 @@ function testGetDynamicLinkDomain_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&returnDynamicLink=true',
       'GET',
       undefined,
@@ -2071,7 +2071,7 @@ function testGetDynamicLinkDomain_internalError() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&returnDynamicLink=true',
       'GET',
       undefined,
@@ -2108,7 +2108,7 @@ function testGetDynamicLinkDomain_notActivated() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&returnDynamicLink=true',
       'GET',
       undefined,
@@ -2138,7 +2138,7 @@ function testIsIosBundleIdValid_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&iosBundleId=' +
       encodeURIComponent(iosBundleId),
       'GET',
@@ -2174,7 +2174,7 @@ function testIsIosBundleIdValid_error() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&iosBundleId=' +
       encodeURIComponent(iosBundleId),
       'GET',
@@ -2205,7 +2205,7 @@ function testIsAndroidPackageNameValid_success_noSha1Cert() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&androidPackageName=' +
       encodeURIComponent(androidPackageName),
       'GET',
@@ -2241,7 +2241,7 @@ function testIsAndroidPackageNameValid_error_noSha1Cert() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&androidPackageName=' +
       encodeURIComponent(androidPackageName),
       'GET',
@@ -2273,7 +2273,7 @@ function testIsAndroidPackageNameValid_success_sha1Cert() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&androidPackageName=' +
       encodeURIComponent(androidPackageName) +
       '&sha1Cert=' + encodeURIComponent(sha1Cert),
@@ -2311,7 +2311,7 @@ function testIsAndroidPackageNameValid_error_sha1Cert() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&androidPackageName=' +
       encodeURIComponent(androidPackageName) +
       '&sha1Cert=' + encodeURIComponent(sha1Cert),
@@ -2343,7 +2343,7 @@ function testIsOAuthClientIdValid_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&clientId=' +
       encodeURIComponent(clientId),
       'GET',
@@ -2379,7 +2379,7 @@ function testIsOAuthClientIdValid_error() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'getProjectConfig?key=apiKey&cb=50&clientId=' +
       encodeURIComponent(clientId),
       'GET',
@@ -2415,7 +2415,7 @@ function testFetchSignInMethodsForIdentifier() {
   asyncTestCase.waitForSignals(1);
   var request = {'identifier': identifier, 'continueUri': CURRENT_URL};
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2454,7 +2454,7 @@ function testFetchSignInMethodsForIdentifier_tenantId() {
     'tenantId': '123456789012'
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2482,7 +2482,7 @@ function testFetchSignInMethodsForIdentifier_noSignInMethodsReturned() {
   asyncTestCase.waitForSignals(1);
   var request = {'identifier': identifier, 'continueUri': CURRENT_URL};
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2528,7 +2528,7 @@ function testFetchSignInMethodsForIdentifier_nonHttpOrHttps() {
     'continueUri': 'http://localhost'
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2546,7 +2546,7 @@ function testFetchSignInMethodsForIdentifier_nonHttpOrHttps() {
 function testFetchSignInMethodsForIdentifier_serverCaughtError() {
   var identifier = 'user@example.com';
   var requestBody = {'identifier': identifier, 'continueUri': CURRENT_URL};
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/createAuthUri?key=apiKey';
 
   var errorMap = {};
@@ -2588,7 +2588,7 @@ function testFetchProvidersForIdentifier() {
     'continueUri': CURRENT_URL
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2629,7 +2629,7 @@ function testFetchProvidersForIdentifier_tenantId() {
     'tenantId': '123456789012'
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2681,7 +2681,7 @@ function testFetchProvidersForIdentifier_nonHttpOrHttps() {
     'continueUri': 'http://localhost'
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'createAuthUri?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -2702,7 +2702,7 @@ function testFetchProvidersForIdentifier_serverCaughtError() {
     'identifier': identifier,
     'continueUri': CURRENT_URL
   };
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/createAuthUri?key=apiKey';
 
   var errorMap = {};
@@ -2746,7 +2746,7 @@ function testGetAccountInfoByIdToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountI' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getAccountI' +
       'nfo?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -2770,7 +2770,7 @@ function testVerifyCustomToken_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -2793,7 +2793,7 @@ function testVerifyCustomToken_multiFactorRequired() {
       fireauth.authenum.Error.MFA_REQUIRED, null, pendingCredResponse);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'verifyCustomToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -2820,7 +2820,7 @@ function testVerifyCustomToken_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -2841,7 +2841,7 @@ function testVerifyCustomToken_success_tenantId() {
 
 
 function testVerifyCustomToken_unsupportedTenantOperation() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyCustomToken?key=apiKey';
   var requestBody = {
     'token': 'CUSTOM_TOKEN',
@@ -2859,7 +2859,7 @@ function testVerifyCustomToken_unsupportedTenantOperation() {
 
 
 function testVerifyCustomToken_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyCustomToken?key=apiKey';
   var token = 'CUSTOM_TOKEN';
   var requestBody = {
@@ -2911,7 +2911,7 @@ function testServerProvidedErrorMessage_knownErrorCode() {
   };
   // Simulate invalid custom token.
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -2958,7 +2958,7 @@ function testServerProvidedErrorMessage_unknownErrorCode() {
   };
   // Simulate unknown backend error.
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3013,7 +3013,7 @@ function testServerProvidedErrorMessage_noErrorCode() {
       fireauth.util.stringifyJSON(serverResponse));
   // Simulate unknown backend error.
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3061,7 +3061,7 @@ function testUnexpectedApiaryError() {
       goog.json.serialize(serverResponse));
   // Simulate unexpected Apiary error.
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3111,7 +3111,7 @@ function testVerifyCustomToken_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCusto' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyCusto' +
       'mToken?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3135,7 +3135,7 @@ function testEmailLinkSignIn_success() {
   var expectedResponse = {'idToken': 'ID_TOKEN'};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/emailLinkSi' +
       'gnin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3159,7 +3159,7 @@ function testEmailLinkSignIn_error_multiFactorRequired() {
       fireauth.authenum.Error.MFA_REQUIRED, null, pendingCredResponse);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'emailLinkSignin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3185,7 +3185,7 @@ function testEmailLinkSignIn_success_tenantId() {
   var expectedResponse = {'idToken': 'ID_TOKEN'};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/emailLinkSi' +
       'gnin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3207,7 +3207,7 @@ function testEmailLinkSignIn_success_tenantId() {
 
 
 function testEmailLinkSignIn_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
                     'relyingparty/emailLinkSignin?key=apiKey';
   var email = 'user@example.com';
   var oobCode = 'OTP_CODE';
@@ -3239,7 +3239,7 @@ function testEmailLinkSignIn_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/emailLinkSi' +
       'gnin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3292,7 +3292,7 @@ function testVerifyPassword_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassw' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPassw' +
       'ord?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3316,7 +3316,7 @@ function testVerifyPassword_error_multiFactorRequired() {
       fireauth.authenum.Error.MFA_REQUIRED, null, pendingCredResponse);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'verifyPassword?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3344,7 +3344,7 @@ function testVerifyPassword_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassw' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPassw' +
       'ord?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3366,7 +3366,7 @@ function testVerifyPassword_success_tenantId() {
 
 
 function testVerifyPassword_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyPassword?key=apiKey';
   var email = 'uid123@fake.com';
   var password = 'mysupersecretpassword';
@@ -3400,7 +3400,7 @@ function testVerifyPassword_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassw' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPassw' +
       'ord?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3457,7 +3457,7 @@ function testCreateAccount_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3482,7 +3482,7 @@ function testCreateAccount_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3504,7 +3504,7 @@ function testCreateAccount_success_tenantId() {
 
 
 function testCreateAccount_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/signupNewUser?key=apiKey';
   var email = 'uid123@fake.com';
   var password = 'mysupersecretpassword';
@@ -3537,7 +3537,7 @@ function testCreateAccount_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3587,7 +3587,7 @@ function testCreateAccount_invalidEmailError() {
 function testDeleteAccount_success() {
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'deleteAccount?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3604,7 +3604,7 @@ function testDeleteAccount_success() {
 
 
 function testDeleteAccount_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/deleteAccount?key=apiKey';
   var requestBody = {
     'idToken': 'ID_TOKEN'
@@ -3647,7 +3647,7 @@ function testSignInAnonymously_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3670,7 +3670,7 @@ function testSignInAnonymously_success_tenandId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3690,7 +3690,7 @@ function testSignInAnonymously_success_tenandId() {
 
 
 function testSignInAnonymously_unsupportedTenantOperation() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/signupNewUser?key=apiKey';
   var requestBody = {
     'returnSecureToken': true,
@@ -3710,7 +3710,7 @@ function testSignInAnonymously_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'signupNewUser?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3739,7 +3739,7 @@ function testVerifyAssertion_error_multiFactorRequired() {
       pendingCredResponseWithAdditionalInfo);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'verifyAssertion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3775,7 +3775,7 @@ function testVerifyAssertion_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3812,7 +3812,7 @@ function testVerifyAssertion_success_passTenantIdExplicitly() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3854,7 +3854,7 @@ function testVerifyAssertion_success_noTenantIdInRequest() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3898,7 +3898,7 @@ function testVerifyAssertion_withSessionIdNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3940,7 +3940,7 @@ function testVerifyAssertion_withPostBodyNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -3976,7 +3976,7 @@ function testVerifyAssertion_pendingTokenResponse_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4010,7 +4010,7 @@ function testVerifyAssertion_pendingTokenRequest_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4036,7 +4036,7 @@ function testVerifyAssertion_pendingTokenRequest_success() {
  * Tests verifyAssertion RPC call with invalid/expired pendingToken in request.
  */
 function testVerifyAssertion_pendingTokenRequest_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyAssertion?key=apiKey';
   var requestBody = {
     'pendingToken': 'PENDING_TOKEN',
@@ -4075,7 +4075,7 @@ function testVerifyAssertion_returnIdpCredential_noRecoveryError() {
       fireauth.authenum.Error.USER_DISABLED);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4126,7 +4126,7 @@ function testVerifyAssertionForLinking_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4172,7 +4172,7 @@ function testVerifyAssertionForLinking_withSessionIdNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4217,7 +4217,7 @@ function testVerifyAssertionForLinking_withPostBodyNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4256,7 +4256,7 @@ function testVerifyAssertionForLinking_pendingTokenResponse_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4293,7 +4293,7 @@ function testVerifyAssertionForLinking_pendingTokenRequest_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4337,7 +4337,7 @@ function testVerifyAssertionForLinking_returnIdpCredential_noRecoveryError() {
       fireauth.authenum.Error.USER_DISABLED);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4383,7 +4383,7 @@ function testVerifyAssertionForLinking_error() {
  * Tests server caught verifyAssertion errors.
  */
 function testVerifyAssertion_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyAssertion?key=apiKey';
   var requestBody = {
     'postBody': 'id_token=OIDC_ID_TOKEN&provider_id=oidc.provider&' +
@@ -4453,7 +4453,7 @@ function testVerifyAssertion_needConfirmationError_oauthResponseAndEmail() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4505,7 +4505,7 @@ function testVerifyAssertion_needConfirmationError_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4555,7 +4555,7 @@ function testVerifyAssertion_needConfirmationError_nonceIdToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4603,7 +4603,7 @@ function testVerifyAssertion_needConfirmationError_idTokenSessionId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4657,7 +4657,7 @@ function testVerifyAssertion_needConfirmationError_pendingToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4697,7 +4697,7 @@ function testVerifyAssertion_needConfirmationError_emailResponseOnly() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4735,7 +4735,7 @@ function testVerifyAssertion_needConfirmationError_noExtraInfo() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4789,7 +4789,7 @@ function testVerifyAssertion_credAlreadyInUseError_oauthResponseAndEmail() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4842,7 +4842,7 @@ function testVerifyAssertion_credAlreadyInUseError_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4895,7 +4895,7 @@ function testVerifyAssertion_credAlreadyInUseError_nonceIdToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -4946,7 +4946,7 @@ function testVerifyAssertion_credAlreadyInUseError_idTokenSessionId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5003,7 +5003,7 @@ function testVerifyAssertion_credAlreadyInUseError_pendingToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5052,7 +5052,7 @@ function testVerifyAssertion_emailExistsError_oauthResponseAndEmail() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5102,7 +5102,7 @@ function testVerifyAssertion_emailExistsError_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5152,7 +5152,7 @@ function testVerifyAssertion_emailExistsError_nonceIdToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5203,7 +5203,7 @@ function testVerifyAssertion_emailExistsError_idTokenSessionId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5260,7 +5260,7 @@ function testVerifyAssertion_emailExistsError_pendingToken() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5296,7 +5296,7 @@ function testVerifyAssertionForExisting_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5335,7 +5335,7 @@ function testVerifyAssertionForExisting_success_passTenantIdExplicitly() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5380,7 +5380,7 @@ function testVerifyAssertionForExisting_success_noTenantIdInRequest() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5416,7 +5416,7 @@ function testVerifyAssertionForExisting_error_multiFactorRequired() {
       pendingCredResponseWithAdditionalInfo);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'verifyAssertion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5463,7 +5463,7 @@ function testVerifyAssertionForExisting_withSessionIdNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5508,7 +5508,7 @@ function testVerifyAssertionForExisting_withPostBodyNonce_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5547,7 +5547,7 @@ function testVerifyAssertionForExisting_pendingTokenResponse_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5584,7 +5584,7 @@ function testVerifyAssertionForExisting_pendingTokenRequest_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5628,7 +5628,7 @@ function testVerifyAssertionForExisting_returnIdpCredential_noRecoveryError() {
       fireauth.authenum.Error.USER_DISABLED);
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5681,7 +5681,7 @@ function testVerifyAssertionForExisting_error_userNotFound() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5719,7 +5719,7 @@ function testVerifyAssertionForExisting_error_userNotFound() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAsse' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyAsse' +
       'rtion?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5765,7 +5765,7 @@ function testVerifyAssertionForExisting_invalidRequestError() {
  * Tests server caught verifyAssertionForExisting errors.
  */
 function testVerifyAssertionForExisting_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
       'relyingparty/verifyAssertion?key=apiKey';
   var requestBody = {
     'postBody': 'id_token=googleIdToken&access_token=accessToken&provider_id=' +
@@ -5809,7 +5809,7 @@ function testSendSignInLinkToEmail_success_actionCodeSettings() {
   var expectedResponse = {'email': userEmail};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5850,7 +5850,7 @@ function testSendSignInLinkToEmail_success_customLocale() {
   var expectedResponse = {'email': userEmail};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5887,7 +5887,7 @@ function testSendSignInLinkToEmail_success_tenantId() {
   var expectedResponse = {'email': userEmail};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5950,7 +5950,7 @@ function testSendSignInLinkToEmail_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -5981,7 +5981,7 @@ function testSendSignInLinkToEmail_unknownServerResponse() {
  */
 function testSendSignInLinkToEmail_serverCaughtError() {
   var userEmail = 'user@example.com';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
                     'gparty/getOobConfirmationCode?key=apiKey';
   var requestBody = {
     'requestType': fireauth.RpcHandler.GetOobCodeRequestType.EMAIL_SIGNIN,
@@ -6034,7 +6034,7 @@ function testSendPasswordResetEmail_success_actionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6070,7 +6070,7 @@ function testSendPasswordResetEmail_success_noActionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6098,7 +6098,7 @@ function testSendPasswordResetEmail_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6129,7 +6129,7 @@ function testSendPasswordResetEmail_success_customLocale_noActionCode() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6176,7 +6176,7 @@ function testSendPasswordResetEmail_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6200,7 +6200,7 @@ function testSendPasswordResetEmail_unknownServerResponse() {
  */
 function testSendPasswordResetEmail_caughtServerError() {
   var userEmail = 'user@example.com';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/getOobConfirmationCode?key=apiKey';
   var requestBody = {
     'requestType': fireauth.RpcHandler.GetOobCodeRequestType.PASSWORD_RESET,
@@ -6258,7 +6258,7 @@ function testSendEmailVerification_success_actionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6294,7 +6294,7 @@ function testSendEmailVerification_success_noActionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6323,7 +6323,7 @@ function testSendEmailVerification_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6355,7 +6355,7 @@ function testSendEmailVerification_success_customLocale_noActionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6385,7 +6385,7 @@ function testSendEmailVerification_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6409,7 +6409,7 @@ function testSendEmailVerification_unknownServerResponse() {
  */
 function testSendEmailVerification_caughtServerError() {
   var idToken = 'ID_TOKEN';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/getOobConfirmationCode?key=apiKey';
   var requestBody = {
     'requestType': fireauth.RpcHandler.GetOobCodeRequestType.VERIFY_EMAIL,
@@ -6460,7 +6460,7 @@ function testVerifyBeforeUpdateEmail_success_actionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6500,7 +6500,7 @@ function testVerifyBeforeUpdateEmail_success_noActionCodeSettings() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6533,7 +6533,7 @@ function testVerifyBeforeUpdateEmail_success_customLocale() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6566,7 +6566,7 @@ function testVerifyBeforeUpdateEmail_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobCon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/getOobCon' +
       'firmationCode?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6594,7 +6594,7 @@ function testVerifyBeforeUpdateEmail_unknownServerResponse() {
 function testVerifyBeforeUpdateEmail_caughtServerError() {
   var idToken = 'ID_TOKEN';
   var newEmail = 'newUser@example.com';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/getOobConfirmationCode?key=apiKey';
   var requestBody = {
     'requestType':
@@ -6640,7 +6640,7 @@ function testConfirmPasswordReset_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6670,7 +6670,7 @@ function testConfirmPasswordReset_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6711,7 +6711,7 @@ function testConfirmPasswordReset_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6736,7 +6736,7 @@ function testConfirmPasswordReset_unknownServerResponse() {
 function testConfirmPasswordReset_caughtServerError() {
   var newPassword = 'newPass';
   var code = 'PASSWORD_RESET_OOB_CODE';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/resetPassword?key=apiKey';
   var requestBody = {
     'oobCode': code,
@@ -6770,7 +6770,7 @@ function testCheckActionCode_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6798,7 +6798,7 @@ function testCheckActionCode_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6828,7 +6828,7 @@ function testCheckActionCode_emailSignIn_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6866,7 +6866,7 @@ function testCheckActionCode_uncaughtServerError() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6896,7 +6896,7 @@ function testCheckActionCode_uncaughtServerError() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPass' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/resetPass' +
       'word?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6919,7 +6919,7 @@ function testCheckActionCode_uncaughtServerError() {
  */
 function testCheckActionCode_caughtServerError() {
   var code = 'REVOKE_EMAIL_OOB_CODE';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/resetPassword?key=apiKey';
   var requestBody = {
     'oobCode': code
@@ -6948,7 +6948,7 @@ function testApplyActionCode_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'setAccountInfo?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -6976,7 +6976,7 @@ function testApplyActionCode_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'setAccountInfo?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7015,7 +7015,7 @@ function testApplyActionCode_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'setAccountInfo?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7038,7 +7038,7 @@ function testApplyActionCode_unknownServerResponse() {
  */
 function testApplyActionCode_caughtServerError() {
   var code = 'EMAIL_VERIFICATION_OOB_CODE';
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/setAccountInfo?key=apiKey';
   var requestBody = {
     'oobCode': code
@@ -7096,7 +7096,7 @@ function testDeleteLinkedAccounts_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7134,7 +7134,7 @@ function testDeleteLinkedAccounts_invalidRequestError() {
  * Tests server caught deleteLinkedAccounts errors.
  */
 function testDeleteLinkedAccounts_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/setAccountInfo?key=apiKey';
   var requestBody = {
     'idToken': 'ID_TOKEN',
@@ -7162,7 +7162,7 @@ function testUpdateProfile_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7192,7 +7192,7 @@ function testUpdateProfile_blankFields() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7220,7 +7220,7 @@ function testUpdateProfile_omittedFields() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7247,7 +7247,7 @@ function testUpdateProfile_deleteFields() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7281,7 +7281,7 @@ function testUpdateProfile_error() {
       goog.json.serialize(serverResponse));
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7314,7 +7314,7 @@ function testUpdateEmail_success() {
         asyncTestCase.signal();
       });
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7340,7 +7340,7 @@ function testUpdateEmail_customLocale_success() {
         asyncTestCase.signal();
       });
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7370,7 +7370,7 @@ function testUpdateEmail_invalidEmail() {
 
 
 function testUpdateEmail_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
                     'relyingparty/setAccountInfo?key=apiKey';
   var email = 'newuser@example.com';
   var idToken = 'ID_TOKEN';
@@ -7400,7 +7400,7 @@ function testUpdatePassword_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7438,7 +7438,7 @@ function testUpdateEmailAndPassword_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccount' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/setAccount' +
       'Info?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7486,7 +7486,7 @@ function testEmailLinkSignInForLinking_success() {
   var expectedResponse = {'idToken': 'ID_TOKEN'};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/emailLinkSi' +
       'gnin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7508,7 +7508,7 @@ function testEmailLinkSignInForLinking_success() {
 
 
 function testEmailLinkSignInForLinking_serverCaughtError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
                     'relyingparty/emailLinkSignin?key=apiKey';
   var email = 'user@example.com';
   var oobCode = 'OTP_CODE';
@@ -7540,7 +7540,7 @@ function testEmailLinkSignInForLinking_unknownServerResponse() {
   // Test when server returns unexpected response with no error message.
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/emailLinkSi' +
       'gnin?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7631,7 +7631,7 @@ function testInvokeRpc() {
     }
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'myEndpoint?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -7703,7 +7703,7 @@ function testInvokeRpc_requireTenantId() {
     requireTenantId: true
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'myEndpoint?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7729,7 +7729,7 @@ function testInvokeRpc_httpMethod() {
     httpMethod: fireauth.RpcHandler.HttpMethod.GET
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'myEndpoint?key=apiKey',
       'GET',
       undefined,
@@ -7806,7 +7806,7 @@ function testInvokeRpc_responseError() {
     }
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'myEndpoint?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -7832,7 +7832,7 @@ function testInvokeRpc_responseField() {
     responseField: 'theFieldWeWant'
   };
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/' +
       'myEndpoint?key=apiKey',
       'POST',
       goog.json.serialize(request),
@@ -7879,7 +7879,7 @@ function testGetAuthUri_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7923,7 +7923,7 @@ function testGetAuthUri_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -7968,7 +7968,7 @@ function testGetAuthUri_success_saml() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -8008,7 +8008,7 @@ function testGetAuthUri_success_saml_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -8090,7 +8090,7 @@ function testGetAuthUri_error_missingProviderId() {
  * Tests server side getAuthUri error.
  */
 function testGetAuthUri_caughtServerError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/createAuthUri?key=apiKey';
   var requestBody = {
     'providerId': 'abc.com',
@@ -8127,7 +8127,7 @@ function testGetAuthUri_googleProvider_withSessionId_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -8169,7 +8169,7 @@ function testGetAuthUri_otherProvider_withSessionId_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -8209,7 +8209,7 @@ function testGetAuthUri_error() {
       goog.json.serialize(serverResponse));
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -8250,7 +8250,7 @@ function testGetAuthUri_error_noAuthUri() {
       'provider. This may be an issue in the provider configuration.');
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuth' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/createAuth' +
       'Uri?key=apiKey',
       'POST',
       goog.json.serialize({
@@ -9038,7 +9038,7 @@ function testSendVerificationCode_success() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/sendVerifi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/sendVerifi' +
       'cationCode?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9066,7 +9066,7 @@ function testSendVerificationCode_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/sendVerifi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/sendVerifi' +
       'cationCode?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9085,7 +9085,7 @@ function testSendVerificationCode_success_tenantId() {
 
 
 function testSendVerificationCode_unsupportedTenantOperation() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/sendVerificationCode?key=apiKey';
   var requestBody = {
     'phoneNumber': '+15551234567',
@@ -9152,7 +9152,7 @@ function testSendVerificationCode_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/sendVerifi' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/sendVerifi' +
       'cationCode?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9172,7 +9172,7 @@ function testSendVerificationCode_unknownServerResponse() {
  * Tests server side sendVerificationCode error.
  */
 function testSendVerificationCode_caughtServerError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/sendVerificationCode?key=apiKey';
   var requestBody = {
     'phoneNumber': '+15551234567',
@@ -9213,7 +9213,7 @@ function testVerifyPhoneNumber_success_usingCode() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9238,7 +9238,7 @@ function testVerifyPhoneNumber_success_customLocale_usingCode() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9266,7 +9266,7 @@ function testVerifyPhoneNumber_success_usingTemporaryProof() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9291,7 +9291,7 @@ function testVerifyPhoneNumber_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9310,7 +9310,7 @@ function testVerifyPhoneNumber_success_tenantId() {
 
 
 function testVerifyPhoneNumber_unsupportedTenantOperation() {
-   var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+   var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/verifyPhoneNumber?key=apiKey';
   var requestBody = {
     'sessionInfo': 'SESSION_INFO',
@@ -9412,7 +9412,7 @@ function testVerifyPhoneNumber_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9432,7 +9432,7 @@ function testVerifyPhoneNumber_unknownServerResponse() {
  * Tests server side verifyPhoneNumber error.
  */
 function testVerifyPhoneNumber_caughtServerError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/verifyPhoneNumber?key=apiKey';
   var requestBody = {
     'sessionInfo': 'SESSION_INFO',
@@ -9477,7 +9477,7 @@ function testVerifyPhoneNumberForLinking_success_usingCode() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9565,7 +9565,7 @@ function testVerifyPhoneNumberForLinking_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9586,7 +9586,7 @@ function testVerifyPhoneNumberForLinking_unknownServerResponse() {
  * Tests server side verifyPhoneNumber error.
  */
 function testVerifyPhoneNumberForLinking_caughtServerError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/verifyPhoneNumber?key=apiKey';
   var requestBody = {
     'sessionInfo': 'SESSION_INFO',
@@ -9641,7 +9641,7 @@ function testVerifyPhoneNumberForLinking_credentialAlreadyInUseError() {
 
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9668,7 +9668,7 @@ function testVerifyPhoneNumberForExisting_success_usingCode() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9695,7 +9695,7 @@ function testVerifyPhoneNumberForExisting_success_usingTemporaryProof() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9722,7 +9722,7 @@ function testVerifyPhoneNumberForExisting_success_tenantId() {
   };
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(requestBody),
@@ -9741,7 +9741,7 @@ function testVerifyPhoneNumberForExisting_success_tenantId() {
 
 
 function testVerifyPhoneNumberForExisting_unsupportedTenantOperation() {
-   var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+   var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/verifyPhoneNumber?key=apiKey';
   var requestBody = {
     'sessionInfo': 'SESSION_INFO',
@@ -9855,7 +9855,7 @@ function testVerifyPhoneNumberForExisting_unknownServerResponse() {
   var expectedResponse = {};
   asyncTestCase.waitForSignals(1);
   assertSendXhrAndRunCallback(
-      'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhon' +
+      'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyingparty/verifyPhon' +
       'eNumber?key=apiKey',
       'POST',
       goog.json.serialize(expectedRequest),
@@ -9876,7 +9876,7 @@ function testVerifyPhoneNumberForExisting_unknownServerResponse() {
  * Tests server side verifyPhoneNumberForExisting error.
  */
 function testVerifyPhoneNumberForExisting_caughtServerError() {
-  var expectedUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyin' +
+  var expectedUrl = 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/relyin' +
       'gparty/verifyPhoneNumber?key=apiKey';
   var requestBody = {
     'sessionInfo': 'SESSION_INFO',

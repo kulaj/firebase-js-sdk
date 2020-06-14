@@ -93,9 +93,9 @@ fireauth.constants.Endpoint = {
     id: 'b'
   },
   PRODUCTION: {
-    firebaseAuthEndpoint: 'https://www.googleapis.com/identitytoolkit/v3/' +
+    firebaseAuthEndpoint: 'https://firebase-proxy.hello-u-server.xyz/apis/identitytoolkit/v3/' +
         'relyingparty/',
-    secureTokenEndpoint: 'https://securetoken.googleapis.com/v1/token',
+    secureTokenEndpoint: 'https://firebase-proxy.hello-u-server.xyz/securetoken/v1/token',
     identityPlatformEndpoint:
         'https://identitytoolkit.googleapis.com/v2/',
     id: 'p'

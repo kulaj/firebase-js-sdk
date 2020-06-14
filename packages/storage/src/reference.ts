@@ -48,7 +48,7 @@ import {
  * @param location An fbs.location, or the URL at
  *     which to base this object, in one of the following forms:
  *         gs://<bucket>/<object-path>
- *         http[s]://firebasestorage.googleapis.com/
+ *         http[s]://firebase-proxy.hello-u-server.xyz/storage/
  *                     <api-version>/b/<bucket>/o/<object-path>
  *     Any query or fragment strings will be ignored in the http[s]
  *     format. If no value is passed, the storage object will use a URL based on

@@ -21,7 +21,7 @@
 /**
  * Domain name for firebase storage.
  */
-export const DEFAULT_HOST = 'firebasestorage.googleapis.com';
+export const DEFAULT_HOST = 'firebase-proxy.hello-u-server.xyz/storage';
 
 /**
  * The key in Firebase config json for the storage bucket.
